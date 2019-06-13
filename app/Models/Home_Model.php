@@ -17,10 +17,18 @@ use app\Core\ModelClass;
 
 class Home extends ModelClass
 {
-	public function lihatbuah($value='')
+	public function datadiri()
 	{
-		$this->_db->where("id_admin = '2'");
-		$this->_db->table('buah');
+		$diri['nama'] = 'Ananda Sholihatun Nisa';
+		$diri['kelas'] = 'XI RPL 2';
+		$diri['sekolah'] = 'SMK Daarul Abroor';
+
+		return $diri;
+	}
+
+	public function listkategori()
+	{
+		$this->_db->table('data_kategori');
 		return $this->_db->fetch();
 	}
 }

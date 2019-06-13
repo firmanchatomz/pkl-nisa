@@ -21,12 +21,22 @@ use app\Core\Controller; // alias namespace
 class HomeController extends Controller
 
 {
-		
+    function __construct()
+    {
+        $this->setheader('admin/header');
+        $this->setfooter('admin/footer');
+        
+    }	
 	  // method default
     // all class use methos index for method default
     // framework chatomz
     public function index()
     {
-      $this->view('welcome');
+      $this->view('login');
+    }
+    public function halamankategori($value='')
+    {
+    	$data['kategori'] = $this->model('home')->listkategori();
+    	$this->view('datakategori',$data);
     }
 }
